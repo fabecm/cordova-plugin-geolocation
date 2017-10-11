@@ -99,9 +99,14 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <source-file src="src/ios/CDVLocation.m" />
         <framework src="CoreLocation.framework" />
 
-        <preference name="GEOLOCATION_USAGE_DESCRIPTION" default=" " />
+        <config-file target="*-Info.plist" parent="NSLocationAlwaysAndWhenInUseUsageDescription">
+            <string>MyCampy requires background geolocation tracking to record sessions</string>
+        </config-file>
+        <config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
+            <string>MyCampy use background geolocation to record sessions</string>
+        </config-file>
         <config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
-            <string>$GEOLOCATION_USAGE_DESCRIPTION</string>
+            <string>MyCampy use geolocation to record sessions</string>
         </config-file>
 
     </platform>
